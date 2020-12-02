@@ -1,6 +1,4 @@
 import re
-from numpy import logical_xor as xor
-
 
 alfa_numeric = re.compile(r'\w+')
 
@@ -29,7 +27,7 @@ def part2():
     with open('input.txt', 'r') as f:
         for line in f.readlines():
             first, second, what, where = extract(line)
-            if xor(where[first - 1] == what, where[second - 1] == what):
+            if (where[first - 1] == what) ^ (where[second - 1] == what):
                 valid += 1
     print(valid)
 
