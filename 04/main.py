@@ -18,6 +18,8 @@ def gen_passports():
                 tuples = get_attr(line)
                 for key, value in tuples:
                     passport[key] = value
+    if passport:
+        yield passport
 
 
 def valid_1(passport):
@@ -89,6 +91,11 @@ def valid_2(passport: Dict[str, str]):
 
 
 def main():
+    print(sum(
+        1
+        for passport in gen_passports()
+        if valid_1(passport)
+    ))
     print(sum(
         1
         for passport in gen_passports()
