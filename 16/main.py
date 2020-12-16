@@ -14,7 +14,7 @@ rule_re = re.compile(r'([\w ]+): (\d+)-(\d+) or (\d+)-(\d+)')
 
 
 def process_input():
-    stage = 'rules'  # rules, own, nearby, done
+    stage = 'rules'  # rules, own, nearby
     rules = []
     nearby_tickets = []
 
