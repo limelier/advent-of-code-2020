@@ -1,3 +1,5 @@
+from time import time
+
 def mem_game(starting_nums, stopping_turn):
     last_turn_spoken = {}
     for idx, num in enumerate(starting_nums):
@@ -16,8 +18,14 @@ def mem_game(starting_nums, stopping_turn):
 
 def main():
     starting_nums = [1, 2, 16, 19, 18, 0]
+
+    start = time()
     mem_game(starting_nums, 2020)
+    print(f'Took {time() - start}s.')
+
+    start = time()
     mem_game(starting_nums, 30000000)
+    print(f'Took {time() - start}s.')
 
 
 if __name__ == '__main__':
