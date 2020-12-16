@@ -13,9 +13,6 @@ class Rule:
 rule_re = re.compile(r'([\w ]+): (\d+)-(\d+) or (\d+)-(\d+)')
 
 
-# ticket_re = re.compile(r'(\d+,)+(\d+)')
-
-
 def process_input():
     stage = 'rules'  # rules, own, nearby, done
     rules = []
