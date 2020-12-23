@@ -1,3 +1,6 @@
+import time
+
+
 class Node:
     def __init__(self, val):
         self.val = val
@@ -26,6 +29,7 @@ def wrap(x):
 
 
 def main():
+    start = time.time()
     puzzle_input = '538914762'
     cups = [int(x) for x in puzzle_input] + [x for x in range(10, 1_000_001)]
 
@@ -39,14 +43,6 @@ def main():
     nodes = sorted(nodes[0:9], key=lambda n: n.val) + nodes[9:]
 
     for step in range(10_000_000):
-        # if step % 100_000 == 0:
-        #     print(f'round {step}')
-        #     node = selected
-        #     for _ in range(10):
-        #         print(node.val, end=' -> ')
-        #         node = node.next
-        #     print('\n')
-
         removed = selected.next_n(3)
         selected.next = removed[-1].next
 
@@ -64,6 +60,8 @@ def main():
     node_one = nodes[0]
 
     print(node_one.next.val * node_one.next.next.val)
+    end = time.time()
+    print(f'time: {end - start}')
 
 
 if __name__ == '__main__':
